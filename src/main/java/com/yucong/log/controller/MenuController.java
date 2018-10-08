@@ -42,6 +42,7 @@ public class MenuController {
 		parent.setId(1);
 		parent.setMenuName("系统运行日志");
 		parent.setParentId(0);
+		parent.setIconCls("database");
 		
 		List<MenuVO> subs = new ArrayList<>();
 		MenuVO sub1 = new MenuVO();
@@ -78,6 +79,7 @@ public class MenuController {
 		parent.setId(5);
 		parent.setMenuName("短信通知");
 		parent.setParentId(0);
+		parent.setIconCls("database");
 		
 		List<MenuVO> subs = new ArrayList<>();
 		MenuVO sub1 = new MenuVO();
@@ -98,6 +100,7 @@ public class MenuController {
 		parent.setId(7);
 		parent.setMenuName("定时任务");
 		parent.setParentId(0);
+		parent.setIconCls("database");
 		
 		List<MenuVO> subs = new ArrayList<>();
 		MenuVO sub1 = new MenuVO();

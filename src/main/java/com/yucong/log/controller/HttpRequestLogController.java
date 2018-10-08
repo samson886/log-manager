@@ -21,7 +21,6 @@ import com.yucong.log.vo.common.DataTableVO;
  * @date   2018-09-13
  * 
  */
-
 @RestController
 @RequestMapping(value = "httpRequestLog")
 public class HttpRequestLogController  {

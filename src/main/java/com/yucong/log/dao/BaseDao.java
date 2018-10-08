@@ -6,8 +6,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
-import com.bm.common.log.BaseModel;
-import com.bm.common.log.SequenceId;
+import com.bm.common.log.base.BaseModel;
+import com.bm.common.log.base.SequenceId;
+
 
 public abstract class BaseDao <Entity extends BaseModel> {
 
@@ -19,7 +20,7 @@ public abstract class BaseDao <Entity extends BaseModel> {
      * 创建对象
      */
     public void save(Entity log) {
-    	log.setId(getNextId());
+    	log.setAutoId(getNextId());
     	getMongoTemplate().save(log);
     }
 	

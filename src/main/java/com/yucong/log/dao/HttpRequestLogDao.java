@@ -56,6 +56,9 @@ private static final String COLLECTION_NAME = "httpRequestLog";
     	if(!StringUtil.isEmpty(dto.getMethod())) {
     		query.addCriteria(Criteria.where("method").is(dto.getMethod()));
     	}
+    	if(!StringUtil.isEmpty(dto.getPlatform())) {
+    		query.addCriteria(Criteria.where("platform").is(dto.getPlatform()));
+    	}
     	if(!StringUtil.isEmpty(dto.getDeviceType())) {
     		query.addCriteria(Criteria.where("deviceType").is(dto.getDeviceType()));
     	}
