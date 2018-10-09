@@ -4,17 +4,17 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.bm.common.log.model.BusinessAbnormalLog;
-import com.bm.common.log.model.HttpRequestLog;
-import com.bm.common.log.model.ServerExceptionLog;
-import com.bm.common.log.model.SmsSendLog;
+import com.java.common.log.model.BusinessAbnormalLog;
+import com.java.common.log.model.HttpRequestLog;
+import com.java.common.log.model.ServerExceptionLog;
+import com.java.common.log.model.SmsSendLog;
 import com.yucong.log.constants.GlobalLog;
 import com.yucong.log.service.BusinessAbnormalLogService;
 import com.yucong.log.service.HttpRequestLogService;
 import com.yucong.log.service.ServerExceptionLogService;
 import com.yucong.log.service.SmsSendLogService;
 import com.yucong.log.utils.FastJsonUtil;
-
+	
 @Component
 public class DirectReceiver {
 

@@ -3,7 +3,7 @@ package com.yucong.log.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bm.common.log.model.SmsSendLog;
+import com.java.common.log.model.SmsSendLog;
 import com.yucong.log.dao.SmsSendLogDao;
 import com.yucong.log.dto.ListSmsSendLogDTO;
 import com.yucong.log.vo.common.DataTableVO;

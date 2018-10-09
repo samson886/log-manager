@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
-import com.bm.common.log.model.SmsSendLog;
+import com.java.common.log.model.SmsSendLog;
 import com.yucong.log.dto.ListSmsSendLogDTO;
 import com.yucong.log.vo.common.DataTableVO;
 
