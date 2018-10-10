@@ -11,8 +11,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
-import com.bm.common.log.model.ServerExceptionLog;
 import com.github.pagehelper.util.StringUtil;
+import com.java.common.log.model.ServerExceptionLog;
 import com.yucong.log.dto.ListServerExceptionLogDTO;
 import com.yucong.log.vo.common.DataTableVO;
 

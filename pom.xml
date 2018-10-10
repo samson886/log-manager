@@ -212,9 +212,9 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>com.bm</groupId>
+			<groupId>com.java</groupId>
 			<artifactId>common-log</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.4</version>
 		</dependency>
 		
 		
@@ -343,3 +343,4 @@
     </build>
 
 </project>
+

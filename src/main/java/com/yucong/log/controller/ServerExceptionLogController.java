@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bm.common.log.model.ServerExceptionLog;
+import com.java.common.log.model.ServerExceptionLog;
 import com.yucong.log.constants.GlobalLog;
 import com.yucong.log.dto.ListServerExceptionLogDTO;
 import com.yucong.log.service.ServerExceptionLogService;

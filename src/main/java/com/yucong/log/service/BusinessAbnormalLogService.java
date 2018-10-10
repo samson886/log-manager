@@ -3,7 +3,7 @@ package com.yucong.log.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bm.common.log.model.BusinessAbnormalLog;
+import com.java.common.log.model.BusinessAbnormalLog;
 import com.yucong.log.dao.BusinessAbnormalLogDao;
 import com.yucong.log.dto.ListBusinessAbnormalLogDTO;
 import com.yucong.log.vo.common.DataTableVO;
