@@ -62,13 +62,15 @@ private static final String COLLECTION_NAME = "serverExceptionLog";
     	if(!StringUtil.isEmpty(dto.getUserId())) {
     		query.addCriteria(Criteria.where("userId").is(dto.getUserId()));
     	}
-    	
+    	if(!StringUtil.isEmpty(dto.getPlatform())) {
+    		query.addCriteria(Criteria.where("platform").is(dto.getPlatform()));
+    	}
     	int allCount = new Long(mongoTemplate.count(query, COLLECTION_NAME)).intValue();//获取所有的count
         int allPage = allCount % size == 0 ? allCount / size : allCount / size + 1;
        
         query.skip(skip);
      	query.limit(dto.getSize());
-     	query.with(new Sort(new Order(Direction.DESC,"_id")));
+     	query.with(new Sort(new Order(Direction.DESC,"autoId")));
         List<ServerExceptionLog> list = mongoTemplate.find(query, ServerExceptionLog.class,COLLECTION_NAME);
     	return new DataTableVO<ServerExceptionLog>(size, allCount, allPage, currentPage, list);
     }

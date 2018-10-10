@@ -13,6 +13,7 @@ public class ListServerExceptionLogDTO extends PageInfo {
 	private String clientIP;
 	private String requestUrl;
 	private String method;
+	private String platform;
 	private String userId;
 	private String deviceType;
 	

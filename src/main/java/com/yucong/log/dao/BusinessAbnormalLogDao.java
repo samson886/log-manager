@@ -47,7 +47,7 @@ public class BusinessAbnormalLogDao extends BaseDao<BusinessAbnormalLog> {
     	Query query = new Query();
      	query.skip(skip);
      	query.limit(dto.getSize());
-     	query.with(new Sort(new Order(Direction.DESC,"_id")));
+     	query.with(new Sort(new Order(Direction.DESC,"autoId")));
     	
     	Query queryAll = new Query();
     	/*if(!StringUtil.isEmpty(dto.getIp())) {

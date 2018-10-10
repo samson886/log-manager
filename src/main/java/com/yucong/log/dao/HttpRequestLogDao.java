@@ -74,7 +74,7 @@ private static final String COLLECTION_NAME = "httpRequestLog";
     	
     	query.skip(skip);
      	query.limit(dto.getSize());
-     	query.with(new Sort(new Order(Direction.DESC,"_id")));
+     	query.with(new Sort(new Order(Direction.DESC,"autoId")));
     	int allPage = allCount % size == 0 ? allCount / size : allCount / size + 1;
         List<HttpRequestLog> list = mongoTemplate.find(query, HttpRequestLog.class, COLLECTION_NAME);
     	return new DataTableVO<HttpRequestLog>(size, allCount, allPage, currentPage, list);
