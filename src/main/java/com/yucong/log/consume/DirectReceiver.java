@@ -27,13 +27,13 @@ public class DirectReceiver {
 	@Autowired
 	private SmsSendLogService smsSendLogService;
 	
-    @RabbitListener(queues = "request")
+    @RabbitListener(queues = "#{'${requestLogQueueName}'}")
     public void processRequestLog(HttpRequestLog log) {
     	GlobalLog.MY_LOGGER.info("消费request请求消息 : " + FastJsonUtil.toJson(log));
     	httpRequestLogService.add(log);
     }
     
-    @RabbitListener(queues = "exception")
+    @RabbitListener(queues = "#{'${exceptionLogQueueName}'}")
     public void processExceptionLog(ServerExceptionLog log) {
         GlobalLog.MY_LOGGER.info("消费exception服务异常消息 : " + FastJsonUtil.toJson(log));
         serverExceptionLogService.add(log);

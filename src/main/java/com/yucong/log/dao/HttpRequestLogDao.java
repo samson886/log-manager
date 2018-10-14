@@ -58,9 +58,12 @@ private static final String COLLECTION_NAME = "httpRequestLog";
     	}
     	if(!StringUtil.isEmpty(dto.getPlatform())) {
     		query.addCriteria(Criteria.where("platform").is(dto.getPlatform()));
-    	}
+    	} 
     	if(!StringUtil.isEmpty(dto.getDeviceType())) {
     		query.addCriteria(Criteria.where("deviceType").is(dto.getDeviceType()));
+    	} else {
+    		//查询deviceType不为空的字段
+    		query.addCriteria(Criteria.where("deviceType").ne(null));
     	}
     	if(!StringUtil.isEmpty(dto.getUserId())) {
     		query.addCriteria(Criteria.where("userId").is(dto.getUserId()));

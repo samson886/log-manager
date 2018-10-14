@@ -8,70 +8,68 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.java.common.log.constant.LogConstants;
 import com.yucong.log.constants.Env;
 
 @Configuration
 @AutoConfigureAfter(Env.class)
 public class RabbitConfig {
 
-	public static final String EXCHANGE = "log-exchange";
-	public static final String ROUTING_KEY_REQUEST = "request";
-	public static final String ROUTING_KEY_EXCEPTION = "exception";
-	public static final String ROUTING_KEY_ABNORMAL = "abnormal";
-	public static final String ROUTING_KEY_CALLBACK = "callback";
-	public static final String ROUTING_KEY_SMS = "sms";
-
 	@Bean
     DirectExchange exchange() {
-        return new DirectExchange(EXCHANGE);
+        return new DirectExchange(LogConstants.Routing.EXCHANGE);
     }
 	
 	@Bean
     Queue requestLogQueue() {
-		 return new Queue(ROUTING_KEY_REQUEST, false);
+		String queueName = Env.isProduct ?  LogConstants.Routing.REQUEST : LogConstants.Routing.REQUEST + "_test";
+		return new Queue(queueName, false);
     }
 	
 	@Bean
     Queue exceptionLogQueue() {
-        return new Queue(ROUTING_KEY_EXCEPTION, false);
+		String queueName = Env.isProduct ?  LogConstants.Routing.EXCEPTION : LogConstants.Routing.EXCEPTION + "_test";
+        return new Queue(queueName, false);
     }
 	
 	@Bean
     Queue abnormalLogQueue() {
-        return new Queue(ROUTING_KEY_ABNORMAL, false);
+		String queueName = Env.isProduct ?  LogConstants.Routing.ABNORMAL : LogConstants.Routing.ABNORMAL + "_test";
+        return new Queue(queueName, false);
     }
 	
 	@Bean
     Queue smsLogQueue() {
-        return new Queue(ROUTING_KEY_SMS, false);
+		String queueName = Env.isProduct ?  LogConstants.Routing.SMS : LogConstants.Routing.SMS + "_test";
+        return new Queue(queueName, false);
     }
 
 	@Bean
     Binding bindingRequestLogQueue(Queue requestLogQueue, DirectExchange exchange) {
         return BindingBuilder.bind(requestLogQueue)
                              .to(exchange)
-                             .with(ROUTING_KEY_REQUEST);
+                             .with(requestLogQueue.getName());
     }
 
     @Bean
     Binding bindingExceptionLogQueue(Queue exceptionLogQueue, DirectExchange exchange) {
         return BindingBuilder.bind(exceptionLogQueue)
                              .to(exchange)
-                             .with(ROUTING_KEY_EXCEPTION);
+                             .with(exceptionLogQueue.getName());
     }
     
     @Bean
     Binding bindingAbnormalLogQueue(Queue abnormalLogQueue, DirectExchange exchange) {
         return BindingBuilder.bind(abnormalLogQueue)
                              .to(exchange)
-                             .with(ROUTING_KEY_ABNORMAL);
+                             .with(abnormalLogQueue.getName());
     }
     
     @Bean
     Binding bindingSmsLogQueue(Queue smsLogQueue, DirectExchange exchange) {
         return BindingBuilder.bind(smsLogQueue)
                              .to(exchange)
-                             .with(ROUTING_KEY_SMS);
+                             .with(smsLogQueue.getName());
     }
 	
 }

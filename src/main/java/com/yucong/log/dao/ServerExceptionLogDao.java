@@ -58,13 +58,16 @@ private static final String COLLECTION_NAME = "serverExceptionLog";
     	}
     	if(!StringUtil.isEmpty(dto.getDeviceType())) {
     		query.addCriteria(Criteria.where("deviceType").is(dto.getDeviceType()));
+    	} else {
+    		//查询不为空的字段
+    		query.addCriteria(Criteria.where("deviceType").ne(null));
     	}
     	if(!StringUtil.isEmpty(dto.getUserId())) {
     		query.addCriteria(Criteria.where("userId").is(dto.getUserId()));
     	}
     	if(!StringUtil.isEmpty(dto.getPlatform())) {
     		query.addCriteria(Criteria.where("platform").is(dto.getPlatform()));
-    	}
+    	} 
     	int allCount = new Long(mongoTemplate.count(query, COLLECTION_NAME)).intValue();//获取所有的count
         int allPage = allCount % size == 0 ? allCount / size : allCount / size + 1;
        

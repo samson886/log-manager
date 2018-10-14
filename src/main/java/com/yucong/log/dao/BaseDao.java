@@ -20,15 +20,16 @@ public abstract class BaseDao <Entity extends BaseModel> {
      * 创建对象
      */
     public void save(Entity log) {
-    	log.setAutoId(getNextId());
+    	log.setAutoId(getNextId(log.getPlatform()));
     	getMongoTemplate().save(log,getCollectionName());
     }
-	
-	/**
+    
+    /**
      * 获取下一个自增ID
      */
-    protected Long getNextId() {
+    protected Long getNextId(String platform) {
         Query query = new Query(Criteria.where("collName").is(getCollectionName()));
+        query.addCriteria(Criteria.where("deviceType").is(platform));
         Update update = new Update();
         update.inc("seqId", 1);
         FindAndModifyOptions options = new FindAndModifyOptions();
