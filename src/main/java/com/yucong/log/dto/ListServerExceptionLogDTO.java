@@ -1,7 +1,8 @@
 package com.yucong.log.dto;
 
 
-import com.yucong.log.utils.FastJsonUtil;
+
+import com.java.util.json.FastJsonUtil;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

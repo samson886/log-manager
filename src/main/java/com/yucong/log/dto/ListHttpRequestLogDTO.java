@@ -3,7 +3,7 @@ package com.yucong.log.dto;
 
 import javax.validation.constraints.NotNull;
 
-import com.yucong.log.utils.FastJsonUtil;
+import com.java.util.json.FastJsonUtil;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

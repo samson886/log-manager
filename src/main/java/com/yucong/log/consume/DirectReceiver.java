@@ -8,12 +8,12 @@ import com.java.common.log.model.BusinessAbnormalLog;
 import com.java.common.log.model.HttpRequestLog;
 import com.java.common.log.model.ServerExceptionLog;
 import com.java.common.log.model.SmsSendLog;
+import com.java.util.json.FastJsonUtil;
 import com.yucong.log.constants.GlobalLog;
 import com.yucong.log.service.BusinessAbnormalLogService;
 import com.yucong.log.service.HttpRequestLogService;
 import com.yucong.log.service.ServerExceptionLogService;
 import com.yucong.log.service.SmsSendLogService;
-import com.yucong.log.utils.FastJsonUtil;
 	
 @Component
 public class DirectReceiver {
