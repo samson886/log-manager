@@ -204,49 +204,17 @@
 			<version>2.6.1</version>
 		</dependency>
 		
-		<!-- dozer支持 -->
-		<dependency>
-			<groupId>net.sf.dozer</groupId>
-			<artifactId>dozer</artifactId>
-			<version>5.5.1</version>
-		</dependency>
-		
 		<dependency>
 			<groupId>com.java</groupId>
 			<artifactId>common-log</artifactId>
 			<version>1.0.6</version>
 		</dependency>
-		
-		
 
 	</dependencies>
 
-	<!-- <build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build> -->
 	
 	<build>
         <plugins>
-            <!-- <plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>指定该Main Class为全局的唯一入口
-                    <mainClass>com.yym.Application</mainClass>
-                    <layout>ZIP</layout>
-                </configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin> -->
 			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -257,14 +225,10 @@
 				</configuration>
 			</plugin>
 			
-			
-			 <plugin>
-                <!-- The plugin rewrites your manifest -->
+			<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.3.0.RELEASE</version>
-                <!-- <version>1.1.1.RELEASE</version> -->
-                <!-- <version>1.5.8.RELEASE</version> -->
                 <configuration><!-- 指定该Main Class为全局的唯一入口 -->
                     <mainClass>com.yucong.log.Application</mainClass>
                     <layout>ZIP</layout>
@@ -289,7 +253,6 @@
                     <useDefaultDelimiters>true</useDefaultDelimiters>
                 </configuration>
             </plugin>
-            
             
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
