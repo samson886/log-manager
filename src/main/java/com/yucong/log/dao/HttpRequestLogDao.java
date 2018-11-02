@@ -47,26 +47,46 @@ private static final String COLLECTION_NAME = "httpRequestLog";
         int skip = (currentPage - 1) * size;
         
     	Query query = new Query();
-    	if(!StringUtil.isEmpty(dto.getClientIP())) {
+    	
+    	//过滤IP
+    	if(StringUtil.isNotEmpty(dto.getClientIP())) {
     		query.addCriteria(Criteria.where("clientIP").regex("^.*" + dto.getClientIP() + ".*$"));
     	}
-    	if(!StringUtil.isEmpty(dto.getRequestUrl())) {
+    	
+    	//过滤URL
+    	if(StringUtil.isNotEmpty(dto.getRequestUrl())) {
     		query.addCriteria(Criteria.where("requestUrl").regex("^.*" + dto.getRequestUrl() + ".*$"));
     	}
-    	if(!StringUtil.isEmpty(dto.getMethod())) {
+    	
+    	//过滤请求方法
+    	if(StringUtil.isNotEmpty(dto.getMethod())) {
     		query.addCriteria(Criteria.where("method").is(dto.getMethod()));
     	}
-    	if(!StringUtil.isEmpty(dto.getPlatform())) {
+    	
+    	//过滤平台
+    	if(StringUtil.isNotEmpty(dto.getPlatform())) {
     		query.addCriteria(Criteria.where("platform").is(dto.getPlatform()));
     	} 
-    	if(!StringUtil.isEmpty(dto.getDeviceType())) {
+    	
+    	//查询deviceType不为空的字段
+    	if(StringUtil.isNotEmpty(dto.getDeviceType())) {
     		query.addCriteria(Criteria.where("deviceType").is(dto.getDeviceType()));
     	} else {
-    		//查询deviceType不为空的字段
     		query.addCriteria(Criteria.where("deviceType").ne(null));
     	}
-    	if(!StringUtil.isEmpty(dto.getUserId())) {
+    	
+    	//过滤用户ID
+    	if(StringUtil.isNotEmpty(dto.getUserId())) {
     		query.addCriteria(Criteria.where("userId").is(dto.getUserId()));
+    	}
+    	
+    	//开始时间
+    	if(StringUtil.isNotEmpty(dto.getBeginTime())) {
+    		query.addCriteria(Criteria.where("createTime").gt(dto.getBeginTime() + " 00:00:00"));
+    	}
+    	//结束时间
+    	if(StringUtil.isNotEmpty(dto.getEndTime())) {
+    		query.addCriteria(Criteria.where("userId").lt(dto.getEndTime() + " 23:59:59"));
     	}
     	
     	int code = dto.getCode();

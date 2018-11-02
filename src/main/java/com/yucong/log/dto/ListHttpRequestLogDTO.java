@@ -22,6 +22,9 @@ public class ListHttpRequestLogDTO extends PageInfo {
 	private String deviceType;
 	private String platform;
 	
+	private String beginTime;
+	private String endTime;
+	
 	public String toString() {
 		return this.getClass().getSimpleName() + FastJsonUtil.toJson(this);
 	}
