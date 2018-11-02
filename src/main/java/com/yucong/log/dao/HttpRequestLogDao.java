@@ -80,13 +80,9 @@ private static final String COLLECTION_NAME = "httpRequestLog";
     		query.addCriteria(Criteria.where("userId").is(dto.getUserId()));
     	}
     	
-    	//开始时间
+    	//开始时间 和结束时间
     	if(StringUtil.isNotEmpty(dto.getBeginTime())) {
-    		query.addCriteria(Criteria.where("createTime").gt(dto.getBeginTime() + " 00:00:00"));
-    	}
-    	//结束时间
-    	if(StringUtil.isNotEmpty(dto.getEndTime())) {
-    		query.addCriteria(Criteria.where("userId").lt(dto.getEndTime() + " 23:59:59"));
+    		query.addCriteria(Criteria.where("createTime").lt(dto.getBeginTime() + " 00:00:00").gt(dto.getEndTime() + " 23:59:59"));
     	}
     	
     	int code = dto.getCode();
