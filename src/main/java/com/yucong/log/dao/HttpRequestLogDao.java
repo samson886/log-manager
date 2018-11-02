@@ -1,5 +1,6 @@
 package com.yucong.log.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.github.pagehelper.util.StringUtil;
 import com.java.common.log.model.HttpRequestLog;
+import com.java.util.time.TimeUtil;
 import com.yucong.log.dto.ListHttpRequestLogDTO;
 import com.yucong.log.vo.common.DataTableVO;
 
@@ -82,7 +84,9 @@ private static final String COLLECTION_NAME = "httpRequestLog";
     	
     	//开始时间 和结束时间
     	if(StringUtil.isNotEmpty(dto.getBeginTime())) {
-    		query.addCriteria(Criteria.where("createTime").lt(dto.getBeginTime() + " 00:00:00").gt(dto.getEndTime() + " 23:59:59"));
+    		Date begin = TimeUtil.getTimeFromString(dto.getBeginTime() + " 00:00:00", TimeUtil.TIME_FORMAT_SHOW_MILLISECOND_WITH_COLON);
+    		Date end = TimeUtil.getTimeFromString(dto.getEndTime() + " 23:59:59", TimeUtil.TIME_FORMAT_SHOW_MILLISECOND_WITH_COLON);
+    		query.addCriteria(Criteria.where("createTime").gt(begin).lt(end));
     	}
     	
     	int code = dto.getCode();
